@@ -76,7 +76,11 @@ export default class rolldown extends Component {
       twitterApi
         .getTwitterToken()
         .then(token => twitterApi.getTwitterVideo(id, token))
-        .then(mp4 => this.downloadFromMp4(mp4, path));
+        .then(mp4 => this.downloadFromMp4(mp4, path))
+        .catch(err => {
+          this.stopLoading(true);
+          Alert.alert(lang.SORRY, lang.INVALID_TWITTER, { text: lang.OK });
+        });
     } else if (extension == 'mp4' || extension == 'mov') {
       // Check if it's a direct URL to a video file.
 

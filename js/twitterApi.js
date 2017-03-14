@@ -13,7 +13,10 @@ const twitterApi = {
     body: 'grant_type=client_credentials',
   })
     .then(res => res.json())
-    .then(data => data.access_token),
+    .then(data => {
+      if (data.errors) throw 'Unable to verify Twitter credentials.';
+      return data.access_token;
+    }),
   getTwitterVideo: (id, bearer) =>
     fetch(
       `https://api.twitter.com/1.1/statuses/show.json?id=${id}&tweet_mode=extended&include_entities=true&`,
