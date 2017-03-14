@@ -166,12 +166,14 @@ export default class rolldown extends Component {
             onSubmitEditing={this.onDownload}
             value={this.state.url}
             keyboardType="url"
+            autoCorrect={false}
           />
           <ProgressViewIOS
             progress={this.state.progress}
             progressTintColor="#fff"
             style={{ alignSelf: 'stretch' }}
             trackTintColor="#666"
+            progressViewStyle="bar"
           />
 
           <View

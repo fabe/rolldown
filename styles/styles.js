@@ -59,6 +59,9 @@ const styles = StyleSheet.create({
   disabled: {
     opacity: 0.3,
   },
+  progress: {
+    borderRadius: 0,
+  },
 });
 
 module.exports = styles;
